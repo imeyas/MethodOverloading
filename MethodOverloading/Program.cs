@@ -13,7 +13,7 @@ namespace MethodOverloading
             Console.WriteLine(Add(17.45m, 45.17m));
 
             Console.WriteLine($"\n3. Are these two integers equal to this total amount in 'dollars'?");
-            Console.WriteLine(Add(45, 17, true));
+            Console.WriteLine(Add(0, 0, true));
         }
 
         public static int Add(int num1, int num2)
@@ -28,15 +28,22 @@ namespace MethodOverloading
 
         public static string Add(int num1, int num2, bool isTrue)
         {
-            if (isTrue)
+            Console.WriteLine($"\nWhat is the first dollar amount?");
+            num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"\nWhat is the second dollar amount?");
+            num2 = Convert.ToInt32(Console.ReadLine());
+
+            var sum = num1 + num2;
+            if (sum >= 0 || sum < 0)
             {
-                string writtendollar = "dollars";
-                return $"\n{num1 + num2} {writtendollar}";
+                return $"\n{sum} dollars";
             }
             else
             {
-                return $"\nDoesn't make cents! Not equal.";
+                return $"Invalid input. Try again.";
             }
+            
         }
     }
 }
